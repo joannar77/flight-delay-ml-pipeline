@@ -131,6 +131,18 @@ This project demonstrates practical experience with:
 
 ---
 
+## Related Project
+
+This project is part of a two-stage machine learning workflow:
+
+1. **Flight Delay ML Pipeline**  
+   Builds the data preprocessing, experiment tracking, and model training pipeline.
+
+2. **Flight Delay Prediction REST API**  
+   Deploys the trained model through a FastAPI application with automated testing and Docker containerization.
+
+Related repository: https://github.com/joannar77/flight-delay-api-deployment
+
 ## Author
 
 **Joanna Ronchi**
