@@ -1,0 +1,37 @@
+name: d602-flight-delay-pipeline
+
+conda_env: pipeline_env.yaml
+
+entry_points:
+  main:
+    parameters: 
+      raw_data_path: {type: str, default: "data/raw.csv"}
+      formatted_path: {type: str, default: "data/formatted.csv"}
+      cleaned_path: {type: str, default: "data/cleaned.csv"}
+      airport: {type: str, default: "JFK"}
+    command: >
+      python3 format_data.py --input "{raw_data_path}" --output "{formatted_path}"
+      && python3 clean_data.py --input "{formatted_path}" --output "{cleaned_path}" --airport "{airport}"
+      && python3 poly_regressor_Python_1.0.0.py --data_path "{cleaned_path}"
+
+  format_data:
+    parameters:
+      raw_data_path: {type: str, default: "data/raw.csv"}
+      formatted_path: {type: str, default: "data/formatted.csv"}
+    command: >
+      python3 format_data.py --input "{raw_data_path}" --output "{formatted_path}"
+
+  clean_data:
+    parameters:
+      formatted_path: {type: str, default: "data/formatted.csv"}
+      cleaned_path: {type: str, default: "data/cleaned.csv"}
+      airport: {type: str, default: "JFK"}
+    command: >
+      python3 clean_data.py --input "{formatted_path}" --output "{cleaned_path}" --airport "{airport}"
+
+  train:
+    parameters:
+      cleaned_path: {type: str, default: "data/cleaned.csv"}
+      airport: {type: str, default: "JFK"}
+    command: >
+      python3 poly_regressor_Python_1.0.0.py --data_path "{cleaned_path}"
