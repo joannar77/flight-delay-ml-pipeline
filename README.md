@@ -1,6 +1,4 @@
-# Flight Delay ML Pipeline
-
-## Machine Learning Pipeline for Flight Departure Delay Prediction
+# Machine Learning Pipeline for Flight Departure Delay Prediction
 
 A reproducible machine learning pipeline developed to predict flight departure delays using U.S. transportation data. The project demonstrates data engineering, machine learning workflow automation, experiment tracking, and version-controlled data management using industry-standard tools.
 
